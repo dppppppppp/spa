@@ -8,7 +8,7 @@
                     <ul class="list-group">
                         <li class="list-group-item" v-for="post in posts">
                             <h4>
-                                <router-link :to="{'name':'posts','params':{'id':post.id}}">{{post.title}}</router-link>
+                                <router-link :to="{'name':'posts.show','params':{'id':post.id}}">{{post.title}}</router-link>
                             </h4>
                             <p>{{post.body}}</p>
                         </li>

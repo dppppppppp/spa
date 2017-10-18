@@ -3,16 +3,18 @@ import VueRouter from 'vue-router';
 let routes = [
     {
         path: '/',
-        component: require('./components/Home')
+        name: 'posts.index',
+        component: require('./components/posts/Index')
     },
     {
         path: '/about',
-        component: require('./components/About')
+        name: 'about',
+        component: require('./components/pages/About')
     },
     {
         path: '/posts/:id',
-        name: 'posts',
-        component: require('./components/Post')
+        name: 'posts.show',
+        component: require('./components/posts/show')
     }
 ];
 

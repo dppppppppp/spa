@@ -12,6 +12,6 @@
 */
 Route::get('test/{post}','PostsController@show');
 
-Route::any('/{all?}', function () {
+Route::any('/{all}', function () {
     return view('layouts.master');
-});
+})->where(['all'=>'.*?']);
