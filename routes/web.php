@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('test/{post}','PostsController@show');
 
 Route::any('/{all?}', function () {
     return view('layouts.master');
