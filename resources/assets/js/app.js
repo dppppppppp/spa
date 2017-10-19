@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -12,12 +11,18 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 import router from './routes';
 import App from './components/App';
-import VeeValidate from 'vee-validate';
+
+import zh_CN from './local/zh_CN';
+import VeeValidate, {Validator} from 'vee-validate';
+
+Validator.localize('zh_CN',zh_CN);
 
 Vue.use(VueRouter);
-Vue.use(VeeValidate);
+Vue.use(VeeValidate, {
+    locale: 'zh_CN'
+});
 
-Vue.component('app',App);
+Vue.component('app', App);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

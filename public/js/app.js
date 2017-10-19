@@ -3715,8 +3715,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vee_validate__ = __webpack_require__(58);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__local_zh_CN__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__local_zh_CN___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__local_zh_CN__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vee_validate__ = __webpack_require__(58);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -3732,8 +3733,14 @@ window.Vue = __webpack_require__(37);
 
 
 
+
+
+__WEBPACK_IMPORTED_MODULE_4_vee_validate__["a" /* Validator */].localize('zh_CN', __WEBPACK_IMPORTED_MODULE_3__local_zh_CN___default.a);
+
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
-Vue.use(__WEBPACK_IMPORTED_MODULE_3_vee_validate__["a" /* default */]);
+Vue.use(__WEBPACK_IMPORTED_MODULE_4_vee_validate__["b" /* default */], {
+  locale: 'zh_CN'
+});
 
 Vue.component('app', __WEBPACK_IMPORTED_MODULE_2__components_App___default.a);
 
@@ -45882,12 +45889,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("input", {
                         directives: [
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: { required: true, min: 4 },
-                            expression: "{ required: true, min:4 }"
-                          },
+                          { name: "validate", rawName: "v-validate" },
                           {
                             name: "model",
                             rawName: "v-model",
@@ -45898,6 +45900,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           id: "name",
+                          "data-vv-rules": "required|min:4",
+                          "data-vv-as": "用户名",
                           type: "text",
                           name: "name",
                           value: "",
@@ -45953,12 +45957,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("input", {
                         directives: [
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: { required: true, email: true },
-                            expression: "{ required: true, email:true }"
-                          },
+                          { name: "validate", rawName: "v-validate" },
                           {
                             name: "model",
                             rawName: "v-model",
@@ -45969,6 +45968,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           id: "email",
+                          "data-vv-rules": "required|email",
+                          "data-vv-as": "邮箱",
                           type: "email",
                           name: "email",
                           value: "",
@@ -46023,12 +46024,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("input", {
                         directives: [
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: { required: true, min: 6 },
-                            expression: "{ required: true, min:6 }"
-                          },
+                          { name: "validate", rawName: "v-validate" },
                           {
                             name: "model",
                             rawName: "v-model",
@@ -46039,6 +46035,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           id: "password",
+                          "data-vv-rules": "required|min:6",
+                          "data-vv-as": "密码",
                           type: "password",
                           name: "password",
                           required: ""
@@ -46094,13 +46092,7 @@ var render = function() {
                     _c("div", { staticClass: "col-md-6" }, [
                       _c("input", {
                         directives: [
-                          {
-                            name: "validate",
-                            rawName: "v-validate",
-                            value: { required: true, confirmed: "password" },
-                            expression:
-                              "{ required: true, confirmed:'password' }"
-                          },
+                          { name: "validate", rawName: "v-validate" },
                           {
                             name: "model",
                             rawName: "v-model",
@@ -46111,6 +46103,8 @@ var render = function() {
                         staticClass: "form-control",
                         attrs: {
                           id: "password-confirm",
+                          "data-vv-rules": "required|confirmed:password",
+                          "data-vv-as": "确认密码",
                           type: "password",
                           name: "password_confirmation",
                           required: ""
@@ -46385,7 +46379,7 @@ if (false) {
 /* unused harmony export install */
 /* unused harmony export use */
 /* unused harmony export mapFields */
-/* unused harmony export Validator */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Validator; });
 /* unused harmony export ErrorBag */
 /* unused harmony export Rules */
 /* unused harmony export version */
@@ -53131,7 +53125,7 @@ var index_esm = {
 };
 
 
-/* harmony default export */ __webpack_exports__["a"] = (index_esm);
+/* harmony default export */ __webpack_exports__["b"] = (index_esm);
 
 
 /***/ }),
@@ -53139,6 +53133,106 @@ var index_esm = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+!function (n, e) {
+    "object" == ( false ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (n.__vee_validate_locale__zh_CN = n.__vee_validate_locale__zh_CN || {}, n.__vee_validate_locale__zh_CN.js = e());
+}(this, function () {
+    "use strict";
+
+    var n = function n(_n) {
+        var e = ["Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+            t = 0 === (_n = 1024 * Number(_n)) ? 0 : Math.floor(Math.log(_n) / Math.log(1024));
+        return 1 * (_n / Math.pow(1024, t)).toFixed(2) + " " + e[t];
+    },
+        e = {
+        name: "zh_CN", messages: {
+            after: function after(n, e) {
+                return " " + n + "必须在" + e[0] + "之后";
+            }, alpha_dash: function alpha_dash(n) {
+                return " " + n + "能够包含字母数字字符，包括破折号、下划线";
+            }, alpha_num: function alpha_num(n) {
+                return n + " 只能包含字母数字字符.";
+            }, alpha_spaces: function alpha_spaces(n) {
+                return " " + n + " 只能包含字母字符，包括空格.";
+            }, alpha: function alpha(n) {
+                return " " + n + " 只能包含字母字符.";
+            }, before: function before(n, e) {
+                return " " + n + " 必须在" + e[0] + " 之前.";
+            }, between: function between(n, e) {
+                return " " + n + " 必须在" + e[0] + " " + e[1] + "之间.";
+            }, confirmed: function confirmed(n, e) {
+                return " " + n + " 不能和" + e[0] + "匹配.";
+            }, date_between: function date_between(n, e) {
+                return " " + n + "必须在" + e[0] + "和" + e[1] + "之间.";
+            }, date_format: function date_format(n, e) {
+                return " " + n + "必须在在" + e[0] + "格式中.";
+            }, decimal: function decimal(n, e) {
+                void 0 === e && (e = ["*"]);
+                var t = e[0];
+                return " " + n + " 必须是数字的而且能够包含" + ("*" === t ? "" : t) + " 小数点.";
+            }, digits: function digits(n, e) {
+                return " " + n + " 必须是数字，且精确到 " + e[0] + "数";
+            }, dimensions: function dimensions(n, e) {
+                return " " + n + "必须是 " + e[0] + " 像素到 " + e[1] + " 像素.";
+            }, email: function email(n) {
+                return " " + n + " 必须是有效的邮箱.";
+            }, ext: function ext(n) {
+                return " " + n + " 必须是有效的文件.";
+            }, image: function image(n) {
+                return " " + n + " 必须是图片.";
+            }, in: function _in(n) {
+                return " " + n + " 必须是一个有效值.";
+            }, ip: function ip(n) {
+                return " " + n + " 必须是一个有效的地址.";
+            }, max: function max(n, e) {
+                return " " + n + " 不能大于" + e[0] + "字符.";
+            }, max_value: function max_value(n, e) {
+                return " " + n + " 必须小于或等于" + e[0] + ".";
+            }, mimes: function mimes(n) {
+                return " " + n + " 必须是有效的文件类型.";
+            }, min: function min(n, e) {
+                return " " + n + " 必须至少有 " + e[0] + " 字符.";
+            }, min_value: function min_value(n, e) {
+                return " " + n + " 必须大于或等于" + e[0] + ".";
+            }, not_in: function not_in(n) {
+                return " " + n + "必须是一个有效值.";
+            }, numeric: function numeric(n) {
+                return " " + n + " 只能包含数字字符.";
+            }, regex: function regex(n) {
+                return " " + n + " 格式无效.";
+            }, required: function required(n) {
+                return n + " 为必须.";
+            }, size: function size(e, t) {
+                var r = t[0];
+                return " " + e + " 必须小于 " + n(r) + ".";
+            }, url: function url(n) {
+                return " " + n + "不是有效的url.";
+            }
+        }, attributes: {}
+    };
+    return "undefined" != typeof VeeValidate && VeeValidate.Validator.addLocale(e), e;
+});
 
 /***/ })
 /******/ ]);

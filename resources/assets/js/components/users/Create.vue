@@ -13,7 +13,7 @@
 
                                 <div class="col-md-6">
                                     <input id="name"
-                                           v-validate="{ required: true, min:4 }"
+                                           v-validate data-vv-rules="required|min:4" data-vv-as="用户名"
                                            type="text" class="form-control" name="name" value="" required
                                            autofocus v-model="name">
                                     <span v-show="errors.has('name')" class="help-block">{{errors.first('name')}}</span>
@@ -25,7 +25,7 @@
 
                                 <div class="col-md-6">
                                     <input id="email"
-                                           v-validate="{ required: true, email:true }"
+                                           v-validate data-vv-rules="required|email" data-vv-as="邮箱"
                                            type="email" class="form-control" name="email" value="" required
                                            v-model="email">
                                     <span v-show="errors.has('email')" class="help-block">{{errors.first('email')}}</span>
@@ -37,7 +37,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password"
-                                           v-validate="{ required: true, min:6 }"
+                                           v-validate data-vv-rules="required|min:6" data-vv-as="密码"
                                            type="password" class="form-control" name="password" required
                                            v-model="password">
                                     <span v-show="errors.has('password')" class="help-block">{{errors.first('password')}}</span>
@@ -49,7 +49,7 @@
 
                                 <div class="col-md-6">
                                     <input id="password-confirm"
-                                           v-validate="{ required: true, confirmed:'password' }"
+                                           v-validate data-vv-rules="required|confirmed:password" data-vv-as="确认密码"
                                            type="password" class="form-control"
                                            name="password_confirmation" required v-model="passwordConfirmation">
                                     <span v-show="errors.has('password_confirmation')" class="help-block">{{errors.first('password_confirmation')}}</span>
