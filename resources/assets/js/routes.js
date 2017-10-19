@@ -14,7 +14,12 @@ let routes = [
     {
         path: '/posts/:id',
         name: 'posts.show',
-        component: require('./components/posts/show')
+        component: require('./components/posts/Show')
+    },
+    {
+        path: '/register',
+        name: 'users.create',
+        component: require('./components/users/Create')
     }
 ];
 

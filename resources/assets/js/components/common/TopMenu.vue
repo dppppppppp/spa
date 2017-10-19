@@ -6,7 +6,7 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <router-link tag="li" :to="{name:'about'}"><a>关于</a></router-link>
+                <router-link tag="li" :to="{name:'users.create'}"><a>注册</a></router-link>
             </ul>
         </div>
     </nav>
