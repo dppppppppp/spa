@@ -49,6 +49,8 @@
 </template>
 
 <script>
+    import JWT_TOKEN from '../../helper/jwt';
+
     export default {
         data() {
             return {
@@ -61,16 +63,15 @@
         methods: {
             onSubmit() {
                 let postData = {
-                    username: this.email,
+                    email: this.email,
                     password: this.password,
-                    client_id: 2,
-                    client_secret: 'Qsb4bgBlkXoI73cOIzxQVd5UatvrGgjEt2U4ObAC',
-                    grant_type: 'password',
-                    scope: ''
                 };
-                axios.post('/oauth/token', postData).then(response => {
+                axios.post('/api/login', postData).then(response => {
                     console.log(response);
-                })
+//                    JWT_TOKEN.setToken(response.access_token);
+                }).catch(error => {
+                    console.log(error);
+                });
             }
         }
     }

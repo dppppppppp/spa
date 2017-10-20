@@ -21,3 +21,4 @@ Route::get('/posts','PostsController@index')->name('posts.index');
 Route::get('/posts/{post}','PostsController@show')->name('posts.show');
 
 Route::post('/register','Auth\RegisterController@register')->name('register');
+Route::post('/login','Auth\LoginController@login')->name('login');

@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('test/{post}','PostsController@show');
+Route::get('test',function(){
+    echo asset('css/app.css');
+});
 
 Route::any('/{all}', function () {
     return view('layouts.master');
