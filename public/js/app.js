@@ -3702,7 +3702,7 @@ if (inBrowser && window.Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(59);
+module.exports = __webpack_require__(63);
 
 
 /***/ }),
@@ -3713,11 +3713,11 @@ module.exports = __webpack_require__(59);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App__ = __webpack_require__(56);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_App___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_App__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__local_zh_CN__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__local_zh_CN__ = __webpack_require__(61);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__local_zh_CN___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__local_zh_CN__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vee_validate__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vee_validate__ = __webpack_require__(62);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -45295,6 +45295,10 @@ var routes = [{
     path: '/register',
     name: 'users.create',
     component: __webpack_require__(50)
+}, {
+    path: '/login',
+    name: 'users.login',
+    component: __webpack_require__(53)
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
@@ -46190,7 +46194,337 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(54)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(55)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/users/Login.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-a3b5eff4", Component.options)
+  } else {
+    hotAPI.reload("data-v-a3b5eff4", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            name: '',
+            email: '',
+            password: '',
+            passwordConfirmation: ''
+        };
+    },
+
+    methods: {
+        onSubmit: function onSubmit() {
+            var postData = {
+                username: this.email,
+                password: this.password,
+                client_id: 2,
+                client_secret: 'Qsb4bgBlkXoI73cOIzxQVd5UatvrGgjEt2U4ObAC',
+                grant_type: 'password',
+                scope: ''
+            };
+            axios.post('/oauth/token', postData).then(function (response) {
+                console.log(response);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [_vm._v("登录")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c(
+              "form",
+              {
+                staticClass: "form-horizontal",
+                on: {
+                  submit: function($event) {
+                    $event.preventDefault()
+                    _vm.onSubmit($event)
+                  }
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: { "has-error": _vm.errors.has("email") }
+                  },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-4 control-label",
+                        attrs: { for: "email" }
+                      },
+                      [_vm._v("邮箱")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("input", {
+                        directives: [
+                          { name: "validate", rawName: "v-validate" },
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.email,
+                            expression: "email"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "email",
+                          "data-vv-rules": "required|email",
+                          "data-vv-as": "邮箱",
+                          type: "email",
+                          name: "email",
+                          value: "",
+                          required: ""
+                        },
+                        domProps: { value: _vm.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.email = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("email"),
+                              expression: "errors.has('email')"
+                            }
+                          ],
+                          staticClass: "help-block"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("email")))]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: { "has-error": _vm.errors.has("password") }
+                  },
+                  [
+                    _c(
+                      "label",
+                      {
+                        staticClass: "col-md-4 control-label",
+                        attrs: { for: "password" }
+                      },
+                      [_vm._v("密码")]
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c("input", {
+                        directives: [
+                          { name: "validate", rawName: "v-validate" },
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.password,
+                            expression: "password"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          id: "password",
+                          "data-vv-rules": "required|min:6",
+                          "data-vv-as": "密码",
+                          type: "password",
+                          name: "password",
+                          required: ""
+                        },
+                        domProps: { value: _vm.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.password = $event.target.value
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "span",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.errors.has("password"),
+                              expression: "errors.has('password')"
+                            }
+                          ],
+                          staticClass: "help-block"
+                        },
+                        [_vm._v(_vm._s(_vm.errors.first("password")))]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("div", { staticClass: "col-md-6 col-md-offset-4" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [
+            _vm._v(
+              "\n                                    登录\n                                "
+            )
+          ]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-a3b5eff4", module.exports)
+  }
+}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(57)
+/* template */
+var __vue_template__ = __webpack_require__(60)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -46230,12 +46564,12 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 54 */
+/* 57 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_TopMenu__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_TopMenu__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_TopMenu___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__common_TopMenu__);
 //
 //
@@ -46253,7 +46587,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 55 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -46261,7 +46595,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(56)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -46301,7 +46635,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 56 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46334,6 +46668,12 @@ var render = function() {
             "router-link",
             { attrs: { tag: "li", to: { name: "users.create" } } },
             [_c("a", [_vm._v("注册")])]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { attrs: { tag: "li", to: { name: "users.login" } } },
+            [_c("a", [_vm._v("登录")])]
           )
         ],
         1
@@ -46352,7 +46692,7 @@ if (false) {
 }
 
 /***/ }),
-/* 57 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -46372,7 +46712,96 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+!function (n, e) {
+    "object" == ( false ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (n.__vee_validate_locale__zh_CN = n.__vee_validate_locale__zh_CN || {}, n.__vee_validate_locale__zh_CN.js = e());
+}(this, function () {
+    "use strict";
+
+    var n = function n(_n) {
+        var e = ["Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+            t = 0 === (_n = 1024 * Number(_n)) ? 0 : Math.floor(Math.log(_n) / Math.log(1024));
+        return 1 * (_n / Math.pow(1024, t)).toFixed(2) + " " + e[t];
+    },
+        e = {
+        name: "zh_CN", messages: {
+            after: function after(n, e) {
+                return " " + n + "必须在" + e[0] + "之后";
+            }, alpha_dash: function alpha_dash(n) {
+                return " " + n + "能够包含字母数字字符，包括破折号、下划线";
+            }, alpha_num: function alpha_num(n) {
+                return n + " 只能包含字母数字字符.";
+            }, alpha_spaces: function alpha_spaces(n) {
+                return " " + n + " 只能包含字母字符，包括空格.";
+            }, alpha: function alpha(n) {
+                return " " + n + " 只能包含字母字符.";
+            }, before: function before(n, e) {
+                return " " + n + " 必须在" + e[0] + " 之前.";
+            }, between: function between(n, e) {
+                return " " + n + " 必须在" + e[0] + " " + e[1] + "之间.";
+            }, confirmed: function confirmed(n, e) {
+                return " " + n + " 不能和" + e[0] + "匹配.";
+            }, date_between: function date_between(n, e) {
+                return " " + n + "必须在" + e[0] + "和" + e[1] + "之间.";
+            }, date_format: function date_format(n, e) {
+                return " " + n + "必须在在" + e[0] + "格式中.";
+            }, decimal: function decimal(n, e) {
+                void 0 === e && (e = ["*"]);
+                var t = e[0];
+                return " " + n + " 必须是数字的而且能够包含" + ("*" === t ? "" : t) + " 小数点.";
+            }, digits: function digits(n, e) {
+                return " " + n + " 必须是数字，且精确到 " + e[0] + "数";
+            }, dimensions: function dimensions(n, e) {
+                return " " + n + "必须是 " + e[0] + " 像素到 " + e[1] + " 像素.";
+            }, email: function email(n) {
+                return " " + n + " 必须是有效的邮箱.";
+            }, ext: function ext(n) {
+                return " " + n + " 必须是有效的文件.";
+            }, image: function image(n) {
+                return " " + n + " 必须是图片.";
+            }, in: function _in(n) {
+                return " " + n + " 必须是一个有效值.";
+            }, ip: function ip(n) {
+                return " " + n + " 必须是一个有效的地址.";
+            }, max: function max(n, e) {
+                return " " + n + " 不能大于" + e[0] + "字符.";
+            }, max_value: function max_value(n, e) {
+                return " " + n + " 必须小于或等于" + e[0] + ".";
+            }, mimes: function mimes(n) {
+                return " " + n + " 必须是有效的文件类型.";
+            }, min: function min(n, e) {
+                return " " + n + " 必须至少有 " + e[0] + " 字符.";
+            }, min_value: function min_value(n, e) {
+                return " " + n + " 必须大于或等于" + e[0] + ".";
+            }, not_in: function not_in(n) {
+                return " " + n + "必须是一个有效值.";
+            }, numeric: function numeric(n) {
+                return " " + n + " 只能包含数字字符.";
+            }, regex: function regex(n) {
+                return " " + n + " 格式无效.";
+            }, required: function required(n) {
+                return n + " 为必须.";
+            }, size: function size(e, t) {
+                var r = t[0];
+                return " " + e + " 必须小于 " + n(r) + ".";
+            }, url: function url(n) {
+                return " " + n + "不是有效的url.";
+            }
+        }, attributes: {}
+    };
+    return "undefined" != typeof VeeValidate && VeeValidate.Validator.addLocale(e), e;
+});
+
+/***/ }),
+/* 62 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -53129,110 +53558,10 @@ var index_esm = {
 
 
 /***/ }),
-/* 59 */
+/* 63 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-!function (n, e) {
-    "object" == ( false ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? module.exports = e() :  true ? !(__WEBPACK_AMD_DEFINE_FACTORY__ = (e),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
-				__WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : (n.__vee_validate_locale__zh_CN = n.__vee_validate_locale__zh_CN || {}, n.__vee_validate_locale__zh_CN.js = e());
-}(this, function () {
-    "use strict";
-
-    var n = function n(_n) {
-        var e = ["Byte", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
-            t = 0 === (_n = 1024 * Number(_n)) ? 0 : Math.floor(Math.log(_n) / Math.log(1024));
-        return 1 * (_n / Math.pow(1024, t)).toFixed(2) + " " + e[t];
-    },
-        e = {
-        name: "zh_CN", messages: {
-            after: function after(n, e) {
-                return " " + n + "必须在" + e[0] + "之后";
-            }, alpha_dash: function alpha_dash(n) {
-                return " " + n + "能够包含字母数字字符，包括破折号、下划线";
-            }, alpha_num: function alpha_num(n) {
-                return n + " 只能包含字母数字字符.";
-            }, alpha_spaces: function alpha_spaces(n) {
-                return " " + n + " 只能包含字母字符，包括空格.";
-            }, alpha: function alpha(n) {
-                return " " + n + " 只能包含字母字符.";
-            }, before: function before(n, e) {
-                return " " + n + " 必须在" + e[0] + " 之前.";
-            }, between: function between(n, e) {
-                return " " + n + " 必须在" + e[0] + " " + e[1] + "之间.";
-            }, confirmed: function confirmed(n, e) {
-                return " " + n + " 不能和" + e[0] + "匹配.";
-            }, date_between: function date_between(n, e) {
-                return " " + n + "必须在" + e[0] + "和" + e[1] + "之间.";
-            }, date_format: function date_format(n, e) {
-                return " " + n + "必须在在" + e[0] + "格式中.";
-            }, decimal: function decimal(n, e) {
-                void 0 === e && (e = ["*"]);
-                var t = e[0];
-                return " " + n + " 必须是数字的而且能够包含" + ("*" === t ? "" : t) + " 小数点.";
-            }, digits: function digits(n, e) {
-                return " " + n + " 必须是数字，且精确到 " + e[0] + "数";
-            }, dimensions: function dimensions(n, e) {
-                return " " + n + "必须是 " + e[0] + " 像素到 " + e[1] + " 像素.";
-            }, email: function email(n) {
-                return " " + n + " 必须是有效的邮箱.";
-            }, ext: function ext(n) {
-                return " " + n + " 必须是有效的文件.";
-            }, image: function image(n) {
-                return " " + n + " 必须是图片.";
-            }, in: function _in(n) {
-                return " " + n + " 必须是一个有效值.";
-            }, ip: function ip(n) {
-                return " " + n + " 必须是一个有效的地址.";
-            }, max: function max(n, e) {
-                return " " + n + " 不能大于" + e[0] + "字符.";
-            }, max_value: function max_value(n, e) {
-                return " " + n + " 必须小于或等于" + e[0] + ".";
-            }, mimes: function mimes(n) {
-                return " " + n + " 必须是有效的文件类型.";
-            }, min: function min(n, e) {
-                return " " + n + " 必须至少有 " + e[0] + " 字符.";
-            }, min_value: function min_value(n, e) {
-                return " " + n + " 必须大于或等于" + e[0] + ".";
-            }, not_in: function not_in(n) {
-                return " " + n + "必须是一个有效值.";
-            }, numeric: function numeric(n) {
-                return " " + n + " 只能包含数字字符.";
-            }, regex: function regex(n) {
-                return " " + n + " 格式无效.";
-            }, required: function required(n) {
-                return n + " 为必须.";
-            }, size: function size(e, t) {
-                var r = t[0];
-                return " " + e + " 必须小于 " + n(r) + ".";
-            }, url: function url(n) {
-                return " " + n + "不是有效的url.";
-            }
-        }, attributes: {}
-    };
-    return "undefined" != typeof VeeValidate && VeeValidate.Validator.addLocale(e), e;
-});
 
 /***/ })
 /******/ ]);
