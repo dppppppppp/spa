@@ -10,6 +10,7 @@ window.Vue = require('vue');
 
 import VueRouter from 'vue-router';
 import router from './routes';
+import store from './store/index';
 import App from './components/App';
 
 import zh_CN from './local/zh_CN';
@@ -33,5 +34,6 @@ Vue.component('app', App);
 
 new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

@@ -12,3 +12,10 @@
         </div>
     </nav>
 </template>
+<script>
+    export default {
+        mounted() {
+            console.log('页头');
+        }
+    }
+</script>

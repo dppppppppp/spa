@@ -67,8 +67,9 @@
                     password: this.password,
                 };
                 axios.post('/api/login', postData).then(response => {
-                    console.log(response);
-//                    JWT_TOKEN.setToken(response.access_token);
+                    JWT_TOKEN.setToken(response.data.access_token);
+                    console.log(response.data.access_token);
+                    this.$router.push({name:'users.show'});
                 }).catch(error => {
                     console.log(error);
                 });
