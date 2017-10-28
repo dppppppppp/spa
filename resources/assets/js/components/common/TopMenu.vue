@@ -6,16 +6,22 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <router-link tag="li" :to="{name:'users.create'}"><a>注册</a></router-link>
-                <router-link tag="li" :to="{name:'users.login'}"><a>登录</a></router-link>
+                <router-link v-if="!user.authenticated" tag="li" :to="{name:'users.create'}"><a>注册</a></router-link>
+                <router-link v-if="!user.authenticated" tag="li" :to="{name:'users.login'}"><a>登录</a></router-link>
+                <router-link v-if="user.authenticated" tag="li" :to="{name:'users.show'}"><a>个人主页</a></router-link>
+                <router-link v-if="user.authenticated" tag="li" :to="{name:'users.show'}"><a>退出登录</a></router-link>
             </ul>
         </div>
     </nav>
 </template>
 <script>
+    import {mapState} from 'vuex';
+
     export default {
-        mounted() {
-            console.log('页头');
+        computed: {
+            ...mapState({
+                user: state => state.AuthUser,
+            })
         }
     }
 </script>
