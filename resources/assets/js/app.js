@@ -12,11 +12,24 @@ import VueRouter from 'vue-router';
 import router from './routes';
 import store from './store/index';
 import App from './components/App';
+import JWT_TOKEN from './helper/jwt';
 
 import zh_CN from './local/zh_CN';
 import VeeValidate, {Validator} from 'vee-validate';
 
-Validator.localize('zh_CN',zh_CN);
+// Add a request interceptor
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+    if(JWT_TOKEN.getToken()){
+        config.headers['Authorization'] = `Bearer${JWT_TOKEN.getToken()}`;
+    }
+    return config;
+}, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+});
+
+Validator.localize('zh_CN', zh_CN);
 
 Vue.use(VueRouter);
 Vue.use(VeeValidate, {

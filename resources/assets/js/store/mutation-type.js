@@ -1,0 +1,1 @@
+export const SET_AUTH_USR = 'SET_USER_TYPE';

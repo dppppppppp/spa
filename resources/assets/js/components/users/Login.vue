@@ -66,13 +66,9 @@
                     email: this.email,
                     password: this.password,
                 };
-                axios.post('/api/login', postData).then(response => {
-                    JWT_TOKEN.setToken(response.data.access_token);
-                    console.log(response.data.access_token);
-                    this.$router.push({name:'users.show'});
-                }).catch(error => {
-                    console.log(error);
-                });
+                this.$store.dispatch('loginRequest',postData).then(()=>{
+//                    this.$router.push({name:'users.show'});
+                })
             }
         }
     }
