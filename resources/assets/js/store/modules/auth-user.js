@@ -1,4 +1,5 @@
-import {SET_AUTH_USR} from "../mutation-type";
+import {SET_AUTH_USR,LOGOUT} from "../mutation-type";
+import JWT_TOKEN from '../../helper/jwt';
 
 export default {
     state: {
@@ -11,18 +12,28 @@ export default {
             state.authenticated = true;
             state.name = payload.user.name;
             state.email = payload.user.email;
+        },
+        [LOGOUT](state){
+            state.authenticated = false;
+            state.name = null;
+            state.email = null;
         }
     },
     actions: {
         setAuthUser({commit}) {
-            axios.get('/api/user').then(response => {
-                console.log(response.data);
+            return axios.get('/api/user').then(response => {
                 commit({
                     type: SET_AUTH_USR,
                     user: response.data
                 });
             }).catch(error => {
                 console.log(error);
+            });
+        },
+        logout({commit}){
+            JWT_TOKEN.removeToken();
+            commit({
+                type:LOGOUT
             });
         }
     }

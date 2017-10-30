@@ -62,14 +62,18 @@
         },
         methods: {
             onSubmit() {
-                let postData = {
-                    email: this.email,
-                    password: this.password,
-                };
-                this.$store.dispatch('loginRequest', postData).then(response => {
-                    this.$router.push({name: 'users.show'});
-                }).catch(error => {
-                    console.log(error);
+                this.$validator.validateAll().then((reslut) => {
+                    if (reslut) {
+                        let postData = {
+                            email: this.email,
+                            password: this.password,
+                        };
+                        this.$store.dispatch('loginRequest', postData).then(() => {
+                            this.$router.push({name: 'users.show'});
+                        }).catch(error => {
+                            console.log(error);
+                        });
+                    }
                 });
             }
         }

@@ -25,13 +25,13 @@ let routes = [
         path: '/register',
         name: 'users.create',
         component: require('./components/users/Create'),
-        meta: {}
+        meta: {requireGuest: true}
     },
     {
         path: '/login',
         name: 'users.login',
         component: require('./components/users/Login'),
-        meta: {}
+        meta: {requireGuest: true}
     },
     {
         path: '/profile',
@@ -47,11 +47,18 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if(to.meta.requireAuth || Store.state.authenticated){
-        if(JWT_TOKEN.getToken()){
+    if (to.meta.requireAuth) {
+        if (JWT_TOKEN.getToken() || Store.state.AuthUser.authenticated) {
             return next();
-        }else{
-            return next({name:'users.login'})
+        } else {
+            return next({name: 'users.login'})
+        }
+    }
+    if (to.meta.requireGuest) {
+        if (JWT_TOKEN.getToken() || Store.state.AuthUser.authenticated) {
+            return next({name: 'posts.index'});
+        } else {
+            return next()
         }
     }
     return next();
