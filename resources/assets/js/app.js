@@ -21,7 +21,8 @@ import VeeValidate, {Validator} from 'vee-validate';
 axios.interceptors.request.use(function (config) {
     // Do something before request is sent
     if(JWT_TOKEN.getToken()){
-        config.headers['Authorization'] = `Bearer${JWT_TOKEN.getToken()}`;
+        config.headers['Authorization'] = `Bearer ${JWT_TOKEN.getToken()}`;
+        config.headers['Accept'] = 'application/json';
     }
     return config;
 }, function (error) {

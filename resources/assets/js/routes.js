@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router';
 import JWT_TOKEN from './helper/jwt';
+import Store from './store/index';
 
 let routes = [
     {
@@ -46,7 +47,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if(to.meta.requireAuth){
+    if(to.meta.requireAuth || Store.state.authenticated){
         if(JWT_TOKEN.getToken()){
             return next();
         }else{

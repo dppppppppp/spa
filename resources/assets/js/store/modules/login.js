@@ -1,4 +1,5 @@
 import JWT_TOKEN from '../../helper/jwt';
+
 export default {
     actions: {
         loginRequest({dispatch}, postData) {
@@ -8,7 +9,6 @@ export default {
             }).catch(error => {
                 console.log(error);
             });
-
         }
     }
 }

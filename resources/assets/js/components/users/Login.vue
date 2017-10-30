@@ -66,9 +66,11 @@
                     email: this.email,
                     password: this.password,
                 };
-                this.$store.dispatch('loginRequest',postData).then(()=>{
-//                    this.$router.push({name:'users.show'});
-                })
+                this.$store.dispatch('loginRequest', postData).then(response => {
+                    this.$router.push({name: 'users.show'});
+                }).catch(error => {
+                    console.log(error);
+                });
             }
         }
     }
