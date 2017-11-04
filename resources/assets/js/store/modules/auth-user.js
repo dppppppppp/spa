@@ -1,4 +1,4 @@
-import {SET_AUTH_USR,LOGOUT} from "../mutation-type";
+import {SET_AUTH_USR, LOGOUT} from "../mutation-type";
 import JWT_TOKEN from '../../helper/jwt';
 
 export default {
@@ -13,7 +13,7 @@ export default {
             state.name = payload.user.name;
             state.email = payload.user.email;
         },
-        [LOGOUT](state){
+        [UNSET_AUTH_USR](state) {
             state.authenticated = false;
             state.name = null;
             state.email = null;
@@ -30,10 +30,9 @@ export default {
                 console.log(error);
             });
         },
-        logout({commit}){
-            JWT_TOKEN.removeToken();
+        unsetAuthUser({commit}) {
             commit({
-                type:LOGOUT
+                type: UNSET_AUTH_USR,
             });
         }
     }

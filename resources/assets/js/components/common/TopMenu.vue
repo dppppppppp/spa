@@ -25,7 +25,7 @@
         },
         methods:{
             logout(){
-                this.$store.dispatch('logout').then(response=>{
+                this.$store.dispatch('logoutRequest').then(response=>{
                     this.$router.push({name:'users.login'});
                 });
             }

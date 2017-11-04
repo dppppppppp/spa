@@ -9,6 +9,14 @@ export default {
             }).catch(error => {
                 console.log(error);
             });
+        },
+        logoutRequest({dispatch}) {
+            return axios.post('/api/logout').then(response => {
+                JWT_TOKEN.removeToken();
+                dispatch('unsetAuthUser');
+            }).catch(error => {
+                console.log(error);
+            });
         }
     }
 }
